@@ -27,29 +27,29 @@ class ClassificadorPlantas:
         tem_flores = self.perguntar_sim_nao(
             "Você consegue ver flores na planta?"
         )
-        tem_frutos_visiveis = self.perguntar_sim_nao(
+        tem_frutos = self.perguntar_sim_nao(
             "Você consegue ver frutos na planta?"
         )
         tem_tronco = self.perguntar_sim_nao(
             "A planta possui um tronco igual a uma árvore?"
         )
         muito_pequena = self.perguntar_sim_nao(
-            "A planta é muito pequena (menos de 10 cm) e forma tapete verde?"
+            "A planta é muito pequena (menos de 10 cm)?"
         )
         cresce_umido = self.perguntar_sim_nao(
-            "Cresce principalmente em local muito úmido e sombreado?"
+            "Cresce principalmente em local úmido e sombreado?"
         )
-        if tem_flores and tem_frutos_visiveis and tem_tronco and muito_pequena and cresce_umido:
+        if tem_flores and tem_frutos and tem_tronco and muito_pequena and cresce_umido:
             print("\n❌ Não foi possível identificar o grupo.")
             print("💡 As respostas não podem ser todas verdadeiras. Tente observer atentamente")
             print("Tente observer atentamente")
             return
-        if not tem_flores and not tem_frutos_visiveis and not tem_tronco and not muito_pequena and not cresce_umido:
+        if not tem_flores and not tem_frutos and not tem_tronco and not muito_pequena and not cresce_umido:
             print("\n❌ Não foi possível identificar o grupo.")
             print("💡 As respostas não podem ser todas falsas. Tente observer atentamente")
             return
 
-        if muito_pequena and cresce_umido and tem_flores:
+        if muito_pequena and cresce_umido and (tem_flores or tem_frutos):
             print("\n❌ Não foi possível identificar o grupo.")
             print("💡 Briófitas (plantas muito pequenas e úmidas) não têm flores. Tente observer atentamente")
             return
@@ -60,31 +60,31 @@ class ClassificadorPlantas:
             return
 
 
-        if tem_flores or tem_frutos_visiveis:
+        if tem_flores or tem_frutos:
             grupo = Angiosperma()
         elif muito_pequena and cresce_umido and not tem_tronco:
             grupo = Briofita()
-        elif tem_tronco or self.perguntar_sim_nao(
-                "A planta é de médio ou grande porte (acima de 1 metro)?"
-        ):
-            if self.perguntar_sim_nao(
-                    "Folhas em forma de agulha/escamas e produz cones/pinhas?"
-            ):
+        elif tem_tronco and not (tem_flores or tem_frutos):
+            folha_agulha = self.perguntar_sim_nao("A folha possui formato semelhante a uma agulha?")
+            if folha_agulha:
                 grupo = Gimnosperma()
             else:
                 grupo = Pteridofita()
+        elif cresce_umido:
+                grupo = Pteridofita()
         else:
-            grupo = Pteridofita()
+            print("\n❌ Não foi possível identificar o grupo.")
+            return
 
 
-        print(f"\n🟢 Grupo identificado: {grupo.nome_grupo()}")
-        print(f"   {grupo.descricao()}\n")
+        print(f"\nGrupo identificado: {grupo.nome_grupo()}")
+        print(f"{grupo.descricao()}\n")
 
 
         resultado_especifico = grupo.detalhar_especie(self)
 
         print("\n=== RESULTADO FINAL ===")
-        print(resultado_especifico)
+        print(f'Planta identificada:{ resultado_especifico}')
 
     def listar_grupos(self):
 

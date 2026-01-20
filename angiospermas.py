@@ -3,7 +3,7 @@ from planta import Planta
 
 class Angiosperma(Planta):
     def __init__(self):
-        exemplos = ["Catingueira", "Quaresmeira", "Açaízero"]
+        exemplos = ["Ipê-Amarelo", "Quaresmeira", "Manacá-da-Serra","Aroeira Vermelha","Paubrasília"]
         super().__init__("Angiosperma", exemplos)
 
     def descricao(self):
@@ -17,23 +17,22 @@ class Angiosperma(Planta):
 
         if classificador.perguntar_sim_nao(
                 "Árvore de médio ou grande porte, tronco lenhoso, copa arredondada e cheia de flores amarelas?"):
-            return "Ipê-amarelo"
+            return " Ipê-amarelo"
 
         if classificador.perguntar_sim_nao(
                 "Árvore com flores grandes que mudam de branco para rosa/roxo na mesma copa?"):
-            return "Manacá-da-serra"
+            return " Manacá-da-serra"
 
         if classificador.perguntar_sim_nao(
                 "Árvore com somente flores rosas/roxas"):
-            return "Quaresmeira"
+            return " Quaresmeira"
 
         if classificador.perguntar_sim_nao(
                 "Árvore de porte médio, folhas pequenas em muitos raminhos e vários frutinhos vermelhos?"):
-            return "Aroeira-vermelha"
+            return " Aroeira-vermelha"
 
         if classificador.perguntar_sim_nao(
                 "Planta de porte menor, com poucos ramos, flores amarelas, sem um tronco grosso bem definido?"):
-            return "Paubrasília"
+            return " Paubrasília"
 
-        print("Planta não especificamente identificável no sistema.")
-        return "Angiosperma carioca não catalogada aqui."
+        return " Angiosperma carioca não catalogada no sistema."

@@ -3,7 +3,7 @@ from planta import Planta
 
 class Briofita(Planta):
     def __init__(self):
-        exemplos = ["Musgo", "Hepática", "Antóceros"]
+        exemplos = ["Musgo comum","Musgo Pleurocarpo", "Hepática", "Antóceros"]
         super().__init__("Briófita", exemplos)
 
     def descricao(self):
@@ -16,23 +16,18 @@ class Briofita(Planta):
         print("Vamos identificar uma briófita específica da flora carioca.\n")
 
         if classificador.perguntar_sim_nao("Forma um tapete verde cobrindo pedras, troncos ou solo?"):
-            return "Musgo comum"
+            return " Musgo comum"
 
         if classificador.perguntar_sim_nao(
                 "Parece uma 'folha' achatada grudada no solo úmido, com formato de lâmina larga?"):
-            return "Hepática talosa"
+            return " Hepática"
 
         if classificador.perguntar_sim_nao(
                 "Massa verde-escura baixa, com pequenas estruturas finas e alongadas saindo para cima?"):
-            return "Antóceros"
+            return " Antóceros"
 
         if classificador.perguntar_sim_nao(
                 "Cresce em troncos sombreados, com raminhos finos que parecem mini galhos pendentes?"):
-            return "Musgo pleurocarpo"
+            return " Musgo pleurocarpo"
 
-        if classificador.perguntar_sim_nao(
-                "Tapete de musgo mais denso, com aspecto de 'almofada' verde em locais elevados e úmidos?"):
-            return "Hypnum"
-
-        print("Planta não especificamente identificável no sistema.")
-        return "Briófita carioca não catalogada."
+        return " Briófita carioca não catalogada."
