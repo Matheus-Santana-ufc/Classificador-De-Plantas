@@ -6,7 +6,7 @@ from angiospermas import Angiosperma
 
 class ClassificadorPlantas:
     def __init__(self):
-        self._grupos = [
+        self.grupos = [
             Briofita(),
             Pteridofita(),
             Gimnosperma(),
@@ -37,7 +37,7 @@ class ClassificadorPlantas:
             "A planta é muito pequena (menos de 10 cm)?"
         )
         cresce_umido = self.perguntar_sim_nao(
-            "Cresce principalmente em local úmido e sombreado?"
+            "A planta cresce em local úmido e sombreado?"
         )
         if tem_flores and tem_frutos and tem_tronco and muito_pequena and cresce_umido:
             print("\n❌ Não foi possível identificar o grupo.")
@@ -89,7 +89,7 @@ class ClassificadorPlantas:
     def listar_grupos(self):
 
         print("\n=== GRUPOS DE PLANTAS DISPONÍVEIS ===\n")
-        for grupo in self._grupos:
+        for grupo in self.grupos:
             print(f"📂 {grupo.nome_grupo()}")
             print(f"   {grupo.descricao()}")
             print("   Exemplos Identificáveis pelo Sistema:")
