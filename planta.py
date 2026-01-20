@@ -3,8 +3,8 @@ class Planta:
         self._nome_grupo = nome_grupo
         self._exemplos = exemplos
 
-    def get_nome_grupo(self):
+    def nome_grupo(self):
         return self._nome_grupo
 
-    def get_exemplos(self):
+    def exemplos(self):
         return self._exemplos

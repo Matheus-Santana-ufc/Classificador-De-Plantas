@@ -6,13 +6,6 @@ class Gimnosperma(Planta):
         exemplos = ["Pinheiro", "Sequoia", "Cipreste"]
         super().__init__("Gimnosperma", exemplos)
 
-    def perguntas_especificas(self):
-        return [
-            "A planta é uma árvore alta, com tronco grosso?",
-            "As folhas são em forma de agulha ou escamas (como em pinheiros)?",
-            "A planta produz 'pinhas' ou cones, em vez de frutos carnosos?"
-        ]
-
     def descricao(self):
         return (
             "Gimnospermas são plantas geralmente arbóreas, com raízes, caule e folhas, "
@@ -20,17 +13,27 @@ class Gimnosperma(Planta):
         )
 
     def detalhar_especie(self, classificador):
-        print("Vamos identificar uma gimnosperma específica.\n")
-        copa_chuva = classificador.perguntar_sim_nao("Copa em forma de guarda-chuva ou prato?")
-        agulhas_longas = classificador.perguntar_sim_nao("Folhas são agulhas longas agrupadas?")
-        forma_estreita = classificador.perguntar_sim_nao("Árvore alta e bem estreita?")
+        print("Vamos identificar uma gimnosperma específica da flora carioca.\n")
 
-        if copa_chuva:
-            planta = "Araucária (pinheiro-do-paraná, copa como guarda-chuva)."
-        elif agulhas_longas:
-            planta = "Pinheiro (agulhas longas em feixes)."
-        elif forma_estreita:
-            planta = "Cipreste (árvore estreita e alta)."
-        else:
-            print('Planta não especificamente identificável no sistema')
-        return f"Gimnosperma mais provável: {planta}"
+        if classificador.perguntar_sim_nao(
+                "Árvore alta com tronco reto e copa no topo parecendo um guarda-chuva ou candelabro?"):
+            return "Araucária (Araucaria angustifolia) - copa em candelabro."
+
+        if classificador.perguntar_sim_nao(
+                "Árvore com folhas estreitas e alongadas (tipo lanceta), não em forma de agulha, copa mais compacta?"):
+            return "Podocarpus (Podocarpus lambertii) - folhas tipo lanceta."
+
+        if classificador.perguntar_sim_nao(
+                "Árvore muito estreita e alta, em forma de coluna, com ramos bem fechados junto ao tronco?"):
+            return "Cipreste (Cupressus sempervirens) - forma de coluna estreita."
+
+        if classificador.perguntar_sim_nao(
+                "Arbusto ou árvore pequena com raminhos finos e folhas em forma de escamas, lembrando um 'mini-cipreste'?"):
+            return "Juniperus (Juniperus spp.) - folhas escamosas."
+
+        if classificador.perguntar_sim_nao(
+                "Árvore de porte médio, copa arredondada, folhas estreitas, em áreas muito úmidas e altas?"):
+            return "Podocarpus (Podocarpus sellowii) - copa arredondada úmida."
+
+        print("Planta não especificamente identificável no sistema.")
+        return "Gimnosperma carioca não catalogada."

@@ -6,13 +6,6 @@ class Briofita(Planta):
         exemplos = ["Musgo", "Hepática", "Antóceros"]
         super().__init__("Briófita", exemplos)
 
-    def perguntas_especificas(self):
-        return [
-            "A planta é bem pequena (geralmente poucos centímetros)?",
-            "A planta parece um tapete verde grudado em superfícies úmidas (rochas, troncos, solo)?",
-            "A planta não tem caule duro nem tronco visível?"
-        ]
-
     def descricao(self):
         return (
             "Briófitas são plantas pequenas, que vivem em locais úmidos, sem raízes, "
@@ -20,18 +13,26 @@ class Briofita(Planta):
         )
 
     def detalhar_especie(self, classificador):
-        print("Vamos identificar uma briófita específica.\n")
-        cresce_em_rocha = classificador.perguntar_sim_nao("Cresce em rochas ou muros?")
-        folhas_planas = classificador.perguntar_sim_nao("Tem folhas achatadas e verdes brilhantes?")
-        escura = classificador.perguntar_sim_nao("É mais escura e cresce em solo úmido?")
+        print("Vamos identificar uma briófita específica da flora carioca.\n")
 
-        if cresce_em_rocha:
-            planta = "Musgo (comum em pedras e muros úmidos)."
-        elif folhas_planas:
-            planta = "Hepáticas (folhas achatadas, verde brilhante)."
-        elif escura:
-            planta = "Antóceros (escuro, em solo úmido)."
-        else:
-            print('Planta não especificamente identificável no sistema')
+        if classificador.perguntar_sim_nao("Forma um tapete verde cobrindo pedras, troncos ou solo?"):
+            return "Musgo comum"
 
-        return f"Briófita mais provável: {planta}"
+        if classificador.perguntar_sim_nao(
+                "Parece uma 'folha' achatada grudada no solo úmido, com formato de lâmina larga?"):
+            return "Hepática talosa"
+
+        if classificador.perguntar_sim_nao(
+                "Massa verde-escura baixa, com pequenas estruturas finas e alongadas saindo para cima?"):
+            return "Antóceros"
+
+        if classificador.perguntar_sim_nao(
+                "Cresce em troncos sombreados, com raminhos finos que parecem mini galhos pendentes?"):
+            return "Musgo pleurocarpo"
+
+        if classificador.perguntar_sim_nao(
+                "Tapete de musgo mais denso, com aspecto de 'almofada' verde em locais elevados e úmidos?"):
+            return "Hypnum"
+
+        print("Planta não especificamente identificável no sistema.")
+        return "Briófita carioca não catalogada."
