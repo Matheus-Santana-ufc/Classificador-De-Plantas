@@ -62,12 +62,12 @@ Execute o arquivo principal:
 
 --- 
 ### 1. Herança
-    class Angiosperma(Planta): # Aplicação da Herança em todos os grupos de planta
+    class Angiosperma(Planta):
         def __init__(self):
-        super().__init__("Angiosperma", exemplos) # Reaproveita o construtor da super classe
+        super().__init__("Angiosperma", exemplos)
 ### 2. Polimorfismo
     print(f"\nGrupo identificado: {grupo.nome_grupo()}")
-    print(f"{grupo.descricao()}\n") # 'Grupo' varia à depender da classe
+    print(f"{grupo.descricao()}\n")
 ### 3. Encapsulamento
     def nome_grupo(self):
         return self._nome_grupo
