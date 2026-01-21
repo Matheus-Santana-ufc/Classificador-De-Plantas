@@ -51,7 +51,7 @@ class ClassificadorPlantas:
 
         if muito_pequena and cresce_umido and (tem_flores or tem_frutos):
             print("\n❌ Não foi possível identificar o grupo.")
-            print("💡 Briófitas (plantas muito pequenas e úmidas) não têm flores. Tente observer atentamente")
+            print("💡 Briófitas (plantas muito pequenas e úmidas) não têm flores ou frutos. Tente observer atentamente")
             return
 
         if muito_pequena and tem_tronco:
