@@ -165,3 +165,7 @@ Execute o arquivo principal:
 
     === RESULTADO FINAL ===
     Planta identificada: Quaresmeira
+
+---
+
+[UML Classificador de Plantas.drawio.pdf](https://github.com/user-attachments/files/24766522/UML.Classificador.de.Plantas.drawio.pdf)
