@@ -167,5 +167,7 @@ Execute o arquivo principal:
     Planta identificada: Quaresmeira
 
 ---
+## 📊Diagrama UML
 
-[UML Classificador de Plantas.drawio.pdf](https://github.com/user-attachments/files/24766522/UML.Classificador.de.Plantas.drawio.pdf)
+<img width="755" height="463" alt="diagrama uml" src="https://github.com/user-attachments/assets/e3edf32d-baad-4a92-b9ab-c0c503c1f117" />
+
